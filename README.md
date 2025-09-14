@@ -1,42 +1,76 @@
-# Week02 Quiz1:
+# Week03 Quiz1:
 
 Please read the classroom documentation in detail！ 
 
 ## 1. Problem:
 
-You are given a matrix of integers. Your task is to compute the sum of two specified elements in the matrix.
+Design an employee management program to support staff entry and query functions.
 
 - Writing code using c++
 
 ### Input
-1. The first line contains two integers **R** and **C** (1 ≤ R, C ≤ 1000), representing the number of rows and columns in the matrix, respectively.
+- The first line contains a number (int type) representing the number of employees that are about to be entered.
+- Starting from the second line, input the corresponding number of employee information based on the numbers entered in the first line. Format as "Name (string/char[] Type) Age (int Type) Salary (int Type) PhoneNumber (string/char[] Type)", separated by spaces. Enter a new line for each employee's information until all input is complete. (Assuming the input is completely correct, fault handling is not considered for input error types.) 
+- After entering the next line of all employee information, enter a number (int type) representing the times of searching commands to be executed next.
+- Starting from the next line, input the corresponding number of query commands based on the numbers from the previous line. Format as "command type (string/char type) query conditions (string/char[] type if queried by name/phone number, int type if queried by age/monthly salary)," use spaces separating the contents. Every command is followed by a new line until all inputs are complete.
 
-2. The next **R** lines each contain **C** integers, separated by spaces. These lines represent the matrix elements. The elements are given in row-major order.
+#### Searching content and format:
 
-3. The following two lines each contain two integers **r** **c** (0 ≤ r < R, 0 ≤ c < C), representing the coordinates of the two elements in the matrix for which you need to compute the sum. Each line specifies the row and column of one element.
+- Search by name: "'n' name". Among these, 'n' is a fixed letter, and 'name' is the name to be queried.
+- Search by age: "'a' age". Among these, 'a' is a fixed letter, and 'age' is the age to be queried.
+- Search by salary: "'s' salary." Among these, 's' is a fixed letter, and "salary" is the salary to be queried.
+- Search by phone number: "'p' phoneNumber". Among these, 'p' is a fixed letter, and 'phoneNumber' is the phone number to be queried.
 
 ### Output
-Print a single integer, which is the sum of the two specified elements.
+- For every searching command input, the corresponding employee information is output. 
+- When multiple pieces of information match, output each piece of information one by one, with a new line for each employee's information.
+- When there is no matching employee information, output "No such person." 
+- When the query command is entered incorrectly, output "Error: Wrong order word!"。
 
-### 1.1 Example 1:
+### Example: (Red font for input, blue font for output)
+
+![image](https://github.com/chyh001228/images/blob/main/w3q1.png)
 
 **Input:**
 
 ```
-3 4
-1 2 3 4
-5 6 7 8
-9 10 11 12
-1 0
-2 3
+6
+chominguk 30 17000 010-2214-3357
+parkminguk 45 4000 010-5325-9400
+parkminsu 42 13000 010-2179-8841
+kimjiwon 56 7000 010-3456-7890
+kimjihye 59 17000 010-1333-3333
+parkcheolsu 44 7000 010-2436-8847
+5
+n parkminguk
+p 010-3456-7890
+s 7000
+a 69
+z chominguk
 ```
 
 **Output:**
+
 ```
-17
+parkminguk 45 4000 010-5325-9400
+kimjiwon 56 7000 010-3456-7890
+kimjiwon 56 7000 010-3456-7890
+parkcheolsu 44 7000 010-2436-8847
+No such person.
+Error: Wrong order word!
 ```
 
+![image](https://github.com/chyh001228/images/blob/main/w3q1_c.png)
 
-None.
+
+
+## 2.Scoring Criteria (Total 3 points):
+
+- Able to run with no compilation issues: 1 point
+- Able to output at least one correct query result: 1 point
+- Exception handling when command input is incorrect: 1 point
+
+
+
 
 <img src="https://cdn.imweb.me/upload/S201906178853c3e170808/c5d876d707352.jpg" width=30% align=center />
